@@ -1,0 +1,2 @@
+contract_id,version,run_id,source_artifact,target_artifact,key,grain,population_predicate,exclusions,boundary,applied_checkpoint,mapping_version,normalisation,currency_units,duplicate_rule,null_rule,required_fields,relationships,coverage_limits
+,,,,,,,,,,,,,,,,,,

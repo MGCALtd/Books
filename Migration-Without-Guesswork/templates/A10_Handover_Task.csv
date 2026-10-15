@@ -1,0 +1,2 @@
+task_id,receiving_role,trigger,input_case,environment,tools,required_access,expected_outcome,observed_actions,assistance,result,elapsed,gap,escalation,retest,procedure_version
+,,,,,,,,,,,,,,,

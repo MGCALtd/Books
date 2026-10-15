@@ -1,0 +1,2 @@
+decision_id,scope,artifact_versions,evidence_map,coverage_limits,exceptions,recovery_limits,authorised_action,next_state,later_gate_conditions,decision_owner,decision_utc,expiry_trigger,supersedes
+,,,,,,,,,,,,,

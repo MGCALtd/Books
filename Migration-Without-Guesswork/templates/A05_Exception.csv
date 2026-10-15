@@ -1,0 +1,2 @@
+exception_id,run_id,category,business_key,affected_population,original_value,observed_value,consequence,uncertainty,cause,resolver,action,authority,disposition,correction_version,retest_evidence,mitigation,operations_owner,review_trigger,closure_evidence
+,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,2 @@
+0.5.0 — 15 October 2026: proofing, explicit section references and code-listing licence; combined queries; relationship and attachment examples; original CSV forms; strengthened verification.
+0.4 — 14 October 2026: corrected key validation, authority bounds, recovery variations, scale exercise and reader aids.

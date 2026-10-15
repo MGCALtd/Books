@@ -1,0 +1,2 @@
+run_id,operator,start_utc,finish_utc,environment,script_version,configuration,input_artifacts,scope,boundary,output_artifacts,completion_state,findings,logs,qualifications,checksum_algorithm
+,,,,,,,,,,,,,,,

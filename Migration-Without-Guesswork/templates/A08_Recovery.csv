@@ -1,0 +1,2 @@
+recovery_id,starting_state,failure_scenario,destination,artifacts,independent_access,accepted_work_boundary,unresolved_data,unresolved_effects,compatibility,transformation,fencing,ordered_steps,expected_duration,observed_duration,resulting_claim,authority,unsupported_cases,decision_deadline
+,,,,,,,,,,,,,,,,,,

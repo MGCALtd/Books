@@ -1,0 +1,2 @@
+step_id,prerequisite_state,operator,verifier,artifact_version,action,expected_state,retained_evidence,planned_duration,deadline,stop_condition,recovery_action,communication,actual_start,actual_finish,actual_result,intervention
+,,,,,,,,,,,,,,,,
