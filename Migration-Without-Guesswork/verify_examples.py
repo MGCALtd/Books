@@ -9,6 +9,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import shlex
 import sqlite3
 import subprocess
 import sys
@@ -26,6 +27,15 @@ from scale_exercise import run as scale_run
 from transition_exercises import run as transition_run
 
 HERE = Path(__file__).resolve().parent
+
+# The public instructions and runner must describe the same exercise commands.
+DOCUMENTED_COMMANDS = (
+    ("reconcile.py", ("--output", "my_first_run")),
+    ("learning_exercises.py", ()),
+    ("transition_exercises.py", ()),
+    ("scale_exercise.py", ()),
+    ("relationship_exercises.py", ()),
+)
 
 
 def require_equal(label, actual, expected):
@@ -180,13 +190,7 @@ def check_commands():
     Each command uses this interpreter. A timeout prevents an accidental hang; its
     duration is a local test limit, not a migration performance requirement.
     """
-    commands = [
-        ("reconcile.py", ["--output", "reader_run"]),
-        ("learning_exercises.py", []),
-        ("transition_exercises.py", []),
-        ("scale_exercise.py", []),
-        ("relationship_exercises.py", []),
-    ]
+    commands = DOCUMENTED_COMMANDS
     with tempfile.TemporaryDirectory(prefix="book-reader-") as directory:
         for script, args in commands:
             completed = subprocess.run(
@@ -206,6 +210,32 @@ def check_commands():
     return len(commands)
 
 
+def check_readme_commands():
+    """Reject mangled instructions and require every exercise command in both guides.
+
+    Parse shell-style argument words, not a permissive substring. For example,
+    'python 3 reconcile.py' must fail rather than resemble 'python3 reconcile.py'.
+    The verifier itself is a documented entry point, not one of the five child CLIs.
+    """
+    allowed = {(name, args) for name, args in DOCUMENTED_COMMANDS}
+    allowed.add(("verify_examples.py", ()))
+    for name in ("README.md", "README.txt"):
+        commands = set()
+        for line in (HERE / name).read_text(encoding="utf-8").splitlines():
+            stripped = line.strip()
+            if not re.match(r"^(?:python3?|py)\s", stripped) or ".py" not in stripped:
+                continue
+            words = shlex.split(stripped)
+            if words[0] == "py" and len(words) > 1 and words[1] == "-3":
+                words.pop(1)
+            command = (words[1], tuple(words[2:]))
+            if not words[1].endswith(".py") or command not in allowed:
+                raise ValueError(f"{name}: unrecognised or mangled command: {stripped}")
+            commands.add(command)
+        require_equal(f"{name} documented command coverage", commands, allowed)
+    return len(allowed)
+
+
 def main():
     """Print one JSON PASS record; give a concise actionable failure on stderr otherwise."""
     if sys.version_info < (3, 12):
@@ -213,6 +243,7 @@ def main():
             "Python 3.12 or later is required. Run python --version first."
         )
     file_count = check_files()
+    readme_command_count = check_readme_commands()
     query_count = check_queries()
     check_relationships()
     form_count = check_forms()
@@ -224,6 +255,7 @@ def main():
                 "result": "PASS",
                 "manifest_files": file_count,
                 "documented_CLIs": command_count,
+                "documented_commands_checked": readme_command_count,
                 "named_SQL_queries": query_count,
                 "forms": form_count,
                 "relationship_checks": "PASS",

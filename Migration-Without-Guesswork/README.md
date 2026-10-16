@@ -1,4 +1,4 @@
-# Migration Without Guesswork — companion 0.6.0
+# Migration Without Guesswork — companion 0.7.1
 
 Original fictional teaching examples and blank evidence forms by Alexander Marinov (MGCA).
 All material for this book stays inside `Migration-Without-Guesswork/` in this repository.
@@ -11,6 +11,12 @@ All material for this book stays inside `Migration-Without-Guesswork/` in this r
 4. Look for one JSON record containing `"result": "PASS"`. The reported runtime and SQLite versions are the ones actually used. A PASS validates these local examples, not a real migration.
 
 If you need to run from another working directory, give the absolute script path, quoted if it contains spaces. The programs locate their fixture files beside the scripts.
+
+Quick verification command:
+
+```sh
+python verify_examples.py
+```
 
 ## Choose a reading path
 
@@ -91,4 +97,7 @@ Original companion Python, SQL, documentation and CSV templates are MIT licensed
 
 These examples use synthetic local data and make no remote calls. They do not implement real write fencing, production CDC, live invoice APIs, access control or disaster recovery. Apply the book’s contracts and your approved engineering process before adapting any method.
 
-See `ERRATA.txt` and `VERSION_HISTORY.txt` in this folder. Send a reproducible report to sales@mgca.co.uk with revision, command, expected/actual output and runtime versions; remove sensitive business data. `SHA256SUMS.json` detects accidental divergence, not authenticated substitution.
+See `ERRATA.txt` and `VERSION_HISTORY.txt` in this folder. Report corrections through the GitHub Issues page linked from ERRATA.txt. Include the book name, revision, command, expected/actual output and runtime versions; remove sensitive business data. `SHA256SUMS.json` detects accidental divergence, not authenticated substitution.
+
+Archive inventory: SHA256SUMS.json lists all 31 content files and excludes itself.
+Repository-only .gitattributes is not included in the companion ZIP.

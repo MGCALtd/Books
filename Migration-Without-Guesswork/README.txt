@@ -1,4 +1,4 @@
-Migration Without Guesswork — companion 0.6.0
+Migration Without Guesswork — companion 0.7.1
 
 START WITH README.md: complete setup, reading path, expected results, safe exercises,
 SQLite CLI instructions, templates, troubleshooting, licence and evidence limits.
@@ -30,3 +30,7 @@ Original Python, SQL, templates and companion documentation: MIT, LICENSE.txt.
 Book prose, illustrations and separate paid products are not covered by this licence.
 Synthetic local exercises only. These scripts are not a production migration tool.
 Corrections: ERRATA.txt / VERSION_HISTORY.txt in this same book folder.
+Use the book-specific GitHub Issues route documented in ERRATA.txt.
+
+Archive inventory: SHA256SUMS.json lists all 31 content files and excludes itself.
+Repository-only .gitattributes is not included in the companion ZIP.

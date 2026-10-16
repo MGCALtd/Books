@@ -1,9 +1,9 @@
 {
-  "ERRATA.txt": "ed425084b411d5244962369ad4b621ceb5f74f7595805c5007fcd9e8ba68172c",
+  "ERRATA.txt": "71df222919cf06da97d21d3ae159ec6da4c156f38418b77942d0f5e4ec7110eb",
   "LICENSE.txt": "1484f8bd2926cc26520d5af1499667fe36ab9dd4bd8625eca9977c57a3c55fe2",
-  "README.md": "106324e6e59b7b4082de5d431ea7dee924a7faf5a9bf941b5b6a5df6beb1a8e0",
-  "README.txt": "a32ae72762a8b725e7c18d630c769cab235a295e07c91515adc1b260927c54c6",
-  "VERSION_HISTORY.txt": "896d10de0c988d86f92d9e1164b0aa25a8cba22c4eb9a9414e4e1143c351ba2e",
+  "README.md": "17c7f4a5c5e192d7d8f3f000a5b940b581d01cff1c88ee52b18f1d1f843d9d04",
+  "README.txt": "bc7f5a409ff364453bdc7f74ceec6f5955f38a884d34b66c3a001a9ce63f90b9",
+  "VERSION_HISTORY.txt": "4231bf4ac14807c9d5218f45701701076427f0ccb7234668be9c843c9e31a290",
   "attachments/manifest.csv": "9c6a20cb2c7b965e27ea5c0cebc0c721e36924ca52f8465763c2b90abdca34e5",
   "attachments/source/order-101.txt": "ec037b8434c9eb363e9e19a49faf058e84ce37454ba7ef2adb6c062a78bb1a65",
   "attachments/source/order-102.txt": "42ef5c12afe8a99685fe45155089247353d95236174ab16ba40768a4ab014770",
@@ -29,5 +29,5 @@
   "templates/A11_Retirement.csv": "41eb7380458d9f6367dd161b3b5101e7157c7a48b24967756a18de9435d53343",
   "templates/README.txt": "9477412888c14c5b51cc284fe5651066e695ec6525cd86aea4a3392a2814e7d6",
   "transition_exercises.py": "f1a113d072b12aafcfa69e3d27138d06fd2ec42bf2718b552702dcdf667bdf12",
-  "verify_examples.py": "c5ba7588b2629fd43e50861ff1a9f1707fdd609ca9891c4a9f07195d25ecdbeb"
+  "verify_examples.py": "dbb2455ed344ce413aa7ed4bb0dec9905d4ac7b1e8a63a261ed114ba36518ddd"
 }

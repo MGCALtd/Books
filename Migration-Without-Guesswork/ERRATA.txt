@@ -1,7 +1,35 @@
-Migration Without Guesswork — digital revision0.5.0,15October2026
-Errata contact: sales@mgca.co.uk (subject: Migration Without Guesswork errata). Include edition/revision,chapter/heading,the observed text and proposed correction. No response-time commitment.
-This file records the revision, not a claim of independently certified correctness. Public repository/errata hosting is a separate release step; no unverified URL is supplied.
+Migration Without Guesswork — book and companion revision 0.7.1, 16 October 2026
 
-Companion 0.6.0 clarifies setup and expected results and rejects invalid finite-time,
-threshold and table-selector inputs. It expands teaching comments without changing
-the book's valid baseline calculations. Use the companion revision when reporting.
+CORRECTIONS
+Report this book's errata through GitHub Issues:
+https://github.com/MGCALtd/Books/issues/new?title=Migration-Without-Guesswork%3A%20
+Use a title beginning "Migration-Without-Guesswork:". Give the book/companion
+revision, chapter or file, command, expected and observed output, Python/SQLite
+versions, and a minimal non-sensitive reproducer. Do not include credentials or
+customer data. GitHub sign-in is needed to file an issue, not to download files.
+This book-specific prefix keeps reports distinct from other books in the repository.
+
+CURRENT CORRECTIONS
+0.7.1 corrects review-run attribution, orders version records, excludes the
+repository-only .gitattributes from the archive and clarifies interpreter names.
+0.7.0 fixes the old errata spacing, EPUB rights text, precise index locators,
+recovery-arrow label placement and a documented-command regression check.
+All executable worked results retain their intended values. The older 0.5 files
+had mangled README/errata spacing; 0.6 replaced the README but retained the old
+errata header. Use the current file, not that historical header.
+
+KNOWN LIMITS
+- Automated verification was run on Linux with Python 3.12.14 and 3.14.8,
+  SQLite 3.53.1. A reviewer-run, AI-assisted check of 0.7.0 on Python
+  3.13.16 / SQLite 3.45.1 passed. This is reported review feedback, not
+  independent CI.
+- Windows/macOS and independent clean-machine CI have not been executed.
+- A small local teaching fixture is not production CDC, write fencing, an invoice
+  API, a live permission test or a production recovery procedure.
+- GitHub folder/commit and Issues access are checked by the publisher; reader
+  networks may block them. EPUBCheck is structural validation, not device proofing.
+- Kindle/device proofing and an independent public checksum trust anchor remain
+  release tasks. A co-located checksum detects accidents, not substitution.
+
+Retain the original observations when reporting. A changed checksum is expected
+only for a deliberately revised release; do not edit the manifest to hide a defect.

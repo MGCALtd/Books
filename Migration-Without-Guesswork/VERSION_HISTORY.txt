@@ -1,8 +1,17 @@
-0.5.0 — 15 October 2026: proofing, explicit section references and code-listing licence; combined queries; relationship and attachment examples; original CSV forms; strengthened verification.
 0.4 — 14 October 2026: corrected key validation, authority bounds, recovery variations, scale exercise and reader aids.
+
+0.5.0 — 15 October 2026: proofing, explicit section references and code-listing licence; combined queries; relationship and attachment examples; original CSV forms; strengthened verification.
 
 0.6.0 — Reader usefulness pass, 15 October 2026. Expanded compressed Python,
 added function explanations and decision-point comments, annotated each SQL query,
 added a complete setup/walkthrough/troubleshooting guide, improved verification
 failure messages and added finite-time/threshold/table-selector validation.
 Worked-example outcomes are unchanged; byte hashes change with the source edits.
+
+0.7.0 — 16 October 2026. Corrected errata spacing and consolidated book/companion
+version labels. Added README command-to-runner regression validation and known
+limits/issue-reporting guidance. Valid example outcomes remain unchanged.
+
+0.7.1 — 16 October 2026. Corrected reviewer-run attribution; ordered edition
+records; removed repository-only .gitattributes from the companion ZIP; clarified
+Python command names. Executable results are unchanged.
