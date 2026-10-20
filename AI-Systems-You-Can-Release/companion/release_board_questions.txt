@@ -1,0 +1,33 @@
+# Appendix K. Release board questions to print
+
+Use this sheet for one candidate and one proposed next state. Write evidence references beside answers; use “unknown” when the evidence is missing. The companion includes an editable copy.
+
+Candidate/manifest: ____________________  Contract: ____________________
+
+Proposed next state: ____________________  Decision owner: ______________
+
+1. VALUE. Who can complete which useful task, and how does this compare with the existing route?
+
+2. BOUNDARY. Which effects and data paths are prohibited? Where are they enforced outside the prompt?
+
+3. EVIDENCE. Which cases, trials, graders and accepted-state observations support each promise?
+
+4. FINDINGS. Which severe defects, ordinary defects, unknowns and exceptions remain? Who owns them?
+
+5. AUTHORITY. Does the actual caller, tool, target, payload, operation and current approval match at execution?
+
+6. RECOVERY. What happens before commit, after a lost reply and when a remote effect remains uncertain?
+
+7. OPERATIONS. What are the time, call, cost and reviewer-capacity limits? What does the user see at exhaustion?
+
+8. HANDLING. Who may see the evidence, where is restricted content retained, and when is it removed?
+
+9. STOP. Who can stop the interface AND the effect path? How is accepted work preserved and reconciled?
+
+10. CHANGE. When does this decision expire, and which source, policy, credential, tool or purpose change triggers review?
+
+Disposition: READY FOR STATED NEXT STATE / BLOCKED / EVIDENCE INCOMPLETE
+
+Conditions and evidence gaps: _________________________________________
+
+Owner/date/review trigger: ____________________________________________

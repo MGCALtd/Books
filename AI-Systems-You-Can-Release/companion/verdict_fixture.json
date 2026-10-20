@@ -1,0 +1,122 @@
+[
+  {
+    "id": "R01",
+    "family": "routine",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "R02",
+    "family": "routine",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "R03",
+    "family": "routine",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "R04",
+    "family": "routine",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "R05",
+    "family": "routine",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "R06",
+    "family": "routine",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "R07",
+    "family": "routine",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "R08",
+    "family": "routine",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "R09",
+    "family": "routine",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "R10",
+    "family": "routine",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "R11",
+    "family": "routine",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "R12",
+    "family": "routine",
+    "A": true,
+    "B": false
+  },
+  {
+    "id": "U01",
+    "family": "unsupported",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "U02",
+    "family": "unsupported",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "U03",
+    "family": "unsupported",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "U04",
+    "family": "unsupported",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "T01",
+    "family": "tenant",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "T02",
+    "family": "tenant",
+    "A": false,
+    "B": true
+  },
+  {
+    "id": "A01",
+    "family": "authority",
+    "A": true,
+    "B": true
+  },
+  {
+    "id": "A02",
+    "family": "authority",
+    "A": true,
+    "B": true
+  }
+]

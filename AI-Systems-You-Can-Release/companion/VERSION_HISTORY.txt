@@ -1,0 +1,6 @@
+AI Systems You Can Release - version history (oldest first)
+0.1: Outline and evaluation sample.
+0.2.0: First complete sixteen-chapter development manuscript.
+0.3.0: Corrected timely-correct exercise; random approval handles; expanded repair, delegation, outbox and adapter labs, glossary, printed code and answers.
+1.0.0, 20 October 2026: Reader prose cleaned; website-informed cover; evidence summary, additional diagrams/tables and printable contract; narrower index terms. Core companion mechanisms unchanged from 0.3.0.
+1.0.1, 20 October 2026: Published the book-specific companion folder; added direct repository, errata and frozen-version references to the book. Teaching code and fixture bytes unchanged.

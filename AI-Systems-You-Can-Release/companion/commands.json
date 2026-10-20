@@ -1,0 +1,10 @@
+[
+  "python score_fixture.py",
+  "python verify_sample.py",
+  "python run_exercises.py",
+  "python verify_full.py",
+  "python repair_lab.py",
+  "python outbox_lab.py",
+  "python live_harness.py",
+  "python verify_extensions.py"
+]

@@ -1,0 +1,2 @@
+finding_id,promise,observation,severity_rationale,classification,owner,repair,retest_scope,closure_evidence
+F-T02-LOCAL,eligible tenant-scoped evidence,T1 received T2/KB-17/1,tenant boundary crossed,local mechanism defect,fictional engineering team,reject crossed target; eligible-first retrieval,six cases in repair_lab.py,before 3/6; after 6/6; deployed routes remain unverified

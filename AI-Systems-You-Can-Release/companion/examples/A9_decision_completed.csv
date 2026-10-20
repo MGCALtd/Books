@@ -1,0 +1,3 @@
+decision_id,next_state,contract,manifest,evidence_board,defects,unknowns,exceptions,approver,conditions,limits,date,expiry,stop_rules,re_review_triggers
+DEC-A-01,BLOCKED,RC-01,A supplied fixture V1,19/20; T02 fails,F-T02,deployed enforcement; fallback,none,Fictional Maya,offline repair only,no user exposure,fictional scenario,before exposure change,tenant gate,repair and affected-route retests
+DEC-B-01,EVIDENCE_INCOMPLETE,RC-01,B supplied fixture V1,19/20; fixture gates pass,R12,deployment; provider; fallback,none,Fictional Maya,continue controlled offline evaluation,no production authorisation,fictional scenario,before exposure change,missing mandatory evidence,quality repair and operating evidence

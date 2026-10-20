@@ -1,0 +1,27 @@
+AI Systems You Can Release - 1.0.1
+20 October 2026
+
+Corrections and reports
+https://github.com/MGCALtd/Books/issues
+Identify this book and version, file/chapter, runtime, command, observed result
+and expected result. Use a synthetic reproduction; omit secrets and private data.
+See VERSION_HISTORY.txt for changes between editions.
+
+Known limits
+- Model verdicts, timings, grader labels and costs are constructed fixtures.
+  Executed local mechanism checks do not measure a live model or deployed service.
+- The 1.0.1 companion passed all eight commands and 31 named tests on Linux,
+  Python 3.12.14 / SQLite 3.53.1, after fresh archive extraction. This is not
+  independent CI or a Windows/macOS run.
+- A reviewer reported 0.2.0 passing on Python 3.13.16 / SQLite 3.45.1 in an
+  AI-assisted review. That does not establish a 1.0.1 run on that runtime.
+- No phone/e-reader, Kindle Previewer or independent reader-run is claimed.
+- The optional adapter has no configured endpoint and makes no default calls.
+- Gateway metadata is trusted fake token metadata, not an OAuth implementation.
+- In-memory approvals and quotas are not persistent or distributed controls.
+- The two-database outbox requires atomic sink deduplication; it has one intent
+  and one worker, with no remote network effects.
+- Download the matching version through the book-specific repository folder.
+  The book lists a frozen commit; compare it with the supplied SHA256SUMS.json.
+- Hashes detect accidental changes against a baseline, not a maliciously
+  substituted baseline or an independently signed publication.
