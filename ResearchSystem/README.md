@@ -107,6 +107,8 @@ it does not connect the service to an external ChatGPT account.
 HTTP binds ONLY to 127.0.0.1. It is a local test endpoint, not remotely accessible
 from ChatGPT. Do not expose it with port forwarding. Before connecting ChatGPT,
 verify account support and configure an authenticated private connection/tunnel.
+The prepared Windows Secure MCP Tunnel launcher is `Connect-ChatGPT.ps1`;
+see `CHATGPT-CONNECTION.md` for the account setup and end-to-end test.
 Returned `book://` URIs are source identifiers, not public document URLs.
 No source documents or credentials belong in GitHub. Local book paths are kept
 inside the database and are not returned by MCP tools.
