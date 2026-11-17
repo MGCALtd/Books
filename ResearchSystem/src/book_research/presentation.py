@@ -9,6 +9,11 @@ STYLE_VERSION = 'research-synthesis-v1'
 RESEARCH_INSTRUCTIONS = '''Use the user's books as the primary evidence for research questions.
 Search the relevant concepts and fetch the supporting passages before answering.
 Read enough context to assess relevance; compare relevant books when useful.
+Start directly with the substance of the answer. Do not repeatedly announce
+"I'll use your books", "I'll search your books", or narrate planned tool use.
+Demonstrate source use through evidence and references. If the client requires
+a progress update, keep it brief and specific to an actual finding or issue;
+omit boilerplate promises and repeated source-selection announcements.
 Write ONE coherent, well-structured research answer. Integrate the evidence into
 the explanation; do not present a passage dump followed by a separate generic answer.
 Keep substantive factual claims grounded in the retrieved books. Use reasoning to
