@@ -77,6 +77,23 @@ If your environment restricts home-directory writes, set `HF_HOME` and
 `HF_XET_CACHE` to writable project-local folders BEFORE starting Python. Set
 `HF_HUB_DISABLE_XET=1` before Python startup to use standard HTTP downloads.
 
+CPU import splits text using the model tokenizer, preserving overlapping sections
+without silently truncating dense mathematical text. PDF font diagnostics are
+counted with bounded samples; low-text pages are flagged for OCR or visual review.
+Text extraction does not reconstruct mathematical notation or figures reliably.
+
+To test up to 12 local books and measure retrieval after import:
+
+```powershell
+.\.venv\Scripts\python.exe scripts/import_sample.py --folder books/inbox --limit 12 --cpu-embed
+.\.venv\Scripts\python.exe scripts/benchmark_collection.py
+```
+
+Private results are saved in `reports/real-book-sample.json`,
+`reports/real-book-retrieval.json` and `reports/Real_Book_Test_Report.html`.
+The benchmark checks expected subject sources in the top five results. It does
+not certify scientific accuracy or that every equation/page extracted correctly.
+
 ## Read-only MCP
 
 ```powershell
@@ -98,8 +115,8 @@ known-answer retrieval, duplicate handling, page provenance and subject overlap.
 Review scan warnings; text extraction alone does not preserve equations/diagrams.
 Measure import time and retrieval latency on real documents before extrapolating.
 
-## Next deployment information needed
+## Later deployment decisions
 
-1. Exact local/NAS path containing initial test books (read-only source).
-2. Existing local Ollama endpoint/model, or permission to install a chosen model.
-3. Later: chosen Proxmox VM, database credentials and backup destination.
+1. Choose and evaluate the final scientific/multilingual embedding model.
+2. Choose a Proxmox VM, database credentials and backup destination.
+3. Configure authenticated access before connecting an external ChatGPT client.

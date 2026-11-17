@@ -7,7 +7,7 @@ name = "mgca-book-research"
 version = "0.1.0"
 description = "Local book catalogue, hybrid retrieval and read-only MCP pilot"
 requires-python = ">=3.11"
-dependencies = ["mcp>=1.20,<2", "pypdf>=6,<7"]
+dependencies = ["mcp>=1.20,<2", "pypdf>=6,<7", "fonttools>=4.60,<5"]
 
 [project.optional-dependencies]
 postgres = ["psycopg[binary]>=3.2,<4"]

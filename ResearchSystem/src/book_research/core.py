@@ -60,23 +60,8 @@ def extract(path: Path) -> tuple[str, str, list[Page], list[str]]:
         pages = [Page(i, str(i), part.strip()) for i, part in enumerate(text.split('\f'), 1)]
         return path.stem, '', pages, ['Text sections are form-feed segments, not verified printed pages.']
     if suffix == '.pdf':
-        from pypdf import PdfReader
-        reader = PdfReader(path)
-        if reader.is_encrypted and not reader.decrypt(''):
-            raise ValueError('Encrypted PDF requires an unlocked copy; no password guessing performed.')
-        metadata = reader.metadata
-        title = str(metadata.title or path.stem) if metadata else path.stem
-        author = str(metadata.author or '') if metadata else ''
-        pages = []
-        labels = reader.page_labels
-        for i, page in enumerate(reader.pages, 1):
-            text = (page.extract_text() or '').strip()
-            if len(text) < 30:
-                warnings.append(f'PDF page {i}: little/no extracted text; OCR or visual review may be needed.')
-            pages.append(Page(i, labels[i - 1], text))
-        if not any(len(page.text) >= 30 for page in pages):
-            raise NeedsOCR('No usable PDF text. OCR required before vectorisation.')
-        return title, author, pages, warnings
+        from .pdf_extract import extract_pdf
+        return extract_pdf(path)
     if suffix == '.epub':
         with zipfile.ZipFile(path) as archive:
             if sum(info.file_size for info in archive.infolist()) > 100_000_000:
@@ -220,7 +205,9 @@ class Catalogue:
         title, author, pages, warnings = extract(path)
         rows = []
         for page in pages:
-            for ordinal, text in enumerate(chunks(page.text, size=getattr(self.embeddings, 'max_words', 350))):
+            splitter = getattr(self.embeddings, 'chunk_text', None)
+            segments = splitter(page.text) if splitter else chunks(page.text, size=getattr(self.embeddings, 'max_words', 350))
+            for ordinal, text in enumerate(segments):
                 rows.append((digest, page.number, page.label, page.section, ordinal, text,
                              json.dumps(subjects(title + ' ' + text))))
         if not rows:
@@ -234,7 +221,8 @@ class Catalogue:
         if self.embeddings:
             self.vectorize_missing(digest)
         return {'status': 'imported', 'book_id': digest, 'passages': len(rows),
-                'warnings': warnings, 'seconds': round(time.perf_counter() - started, 3)}
+                'warning_count': len(warnings), 'warnings': warnings[:12],
+                'seconds': round(time.perf_counter() - started, 3)}
 
     def vectorize_missing(self, book_id: str | None = None):
         self._check_embedding_space()
@@ -326,5 +314,6 @@ class Catalogue:
 
     def catalogue(self):
         rows = self.db.execute('SELECT b.id,b.title,b.author,b.filename,b.page_count,b.warnings,b.metadata_status, '
-            'count(p.id) AS passages,count(p.vector) AS embedded_passages FROM books b LEFT JOIN passages p ON p.book_id=b.id GROUP BY b.id ORDER BY b.title').fetchall()
+            'count(p.id) AS passages,count(p.vector) AS embedded_passages,count(DISTINCT p.page) AS indexed_locations '
+            'FROM books b LEFT JOIN passages p ON p.book_id=b.id GROUP BY b.id ORDER BY b.title').fetchall()
         return [dict(row) for row in rows]
