@@ -46,12 +46,20 @@ def main():
                   'passages':sum(b['passages'] for b in books),'embedded_passages':sum(b['embedded_passages'] for b in books),
                   'median_retrieval_ms':round(statistics.median(c['elapsed_ms'] for c in checks),2),
                   'books':books,'checks':checks}
+        import_path = root / 'reports/real-book-sample.json'
+        import_report = json.loads(import_path.read_text(encoding='utf-8')) if import_path.exists() else {}
+        exclusions = [row for row in import_report.get('results', [])
+                      if row['status'] not in {'imported','duplicate'}]
+        report['files_requiring_work'] = exclusions
         destination = root / 'reports/real-book-retrieval.json'
         destination.write_text(json.dumps(report,ensure_ascii=False,indent=2),encoding='utf-8')
         rows = ''.join('<tr><td>'+html.escape(b['filename'])+'</td><td>'+str(b['page_count'])+'</td><td>'+
                        str(b.get('indexed_locations','?'))+'</td><td>'+str(b['passages'])+'</td><td>'+
                        str(b['embedded_passages'])+'</td></tr>' for b in books)
-        sections = ''
+        sections = '<section><h2>Extraction limitations</h2><p>Equations and diagrams are not reliably preserved by text extraction. Blank/low-text pages require review; indexed locations only count locations containing some text. This does not prove complete page coverage.</p>'
+        for row in exclusions:
+            sections += '<p><strong>'+html.escape(row['filename'])+'</strong>: '+html.escape(row['status'])+' - '+html.escape(row.get('reason',''))+'</p>'
+        sections += '</section>'
         for check in checks:
             sections += '<section><h2>'+html.escape(check['query'])+'</h2><p>'+str(check['elapsed_ms'])+' ms · '+check['mode']+'</p>'
             for hit in check['results'][:3]:
