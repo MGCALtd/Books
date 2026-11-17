@@ -1,0 +1,13 @@
+.venv/
+*.log
+__pycache__/
+*.pyc
+*.egg-info/
+.env
+data/
+reports/
+books/
+*.sqlite*
+*.pdf
+*.epub
+

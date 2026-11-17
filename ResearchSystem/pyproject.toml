@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mgca-book-research"
+version = "0.1.0"
+description = "Local book catalogue, hybrid retrieval and read-only MCP pilot"
+requires-python = ">=3.11"
+dependencies = ["mcp>=1.20,<2", "pypdf>=6,<7"]
+
+[project.optional-dependencies]
+postgres = ["psycopg[binary]>=3.2,<4"]
+cpu-embeddings = ["fastembed>=0.7,<1", "httpx[socks]>=0.28,<1"]
+
+[project.scripts]
+book-research = "book_research.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+

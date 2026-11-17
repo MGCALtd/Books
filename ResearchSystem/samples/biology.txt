@@ -1,0 +1,3 @@
+Synthetic test document. These short passages are software fixtures, not scientific reference books.
+
+Biology studies organisms. Genetics investigates inheritance, while protein molecules participate in cell functions. Statistical mathematics and probability can support biological analysis.

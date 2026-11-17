@@ -1,0 +1,3 @@
+Synthetic test document. These short passages are software fixtures, not scientific reference books.
+
+Physical chemistry connects chemistry with thermodynamics and physics. A catalyst changes the rate of a chemical reaction. Molecular structure and energy affect chemical behaviour.

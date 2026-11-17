@@ -1,0 +1,3 @@
+Synthetic test document. These short passages are software fixtures, not scientific reference books.
+
+Quantum mechanics uses mathematics to describe physical systems. A photon is a quantum of electromagnetic radiation. The Schrodinger equation relates quantum states to their time evolution.

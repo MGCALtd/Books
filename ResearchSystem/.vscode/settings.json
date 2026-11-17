@@ -1,0 +1,7 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/Scripts/python.exe",
+  "python.testing.unittestEnabled": true,
+  "python.testing.unittestArgs": ["-v", "-s", "tests"],
+  "python.testing.pytestEnabled": false,
+  "git.openRepositoryInParentFolders": "always"
+}
