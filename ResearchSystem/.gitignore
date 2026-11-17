@@ -10,4 +10,5 @@ books/
 *.sqlite*
 *.pdf
 *.epub
+*.dpapi
 
