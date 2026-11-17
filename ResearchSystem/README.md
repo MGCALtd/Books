@@ -99,6 +99,18 @@ it does not connect the service to an external ChatGPT account.
 
 ## Read-only MCP
 
+Research defaults are built into the MCP server: retrieved book evidence is
+synthesised into one research answer, with numbered references and readable
+book/author/chapter or PDF-file-page citations. Additional inferences and
+calculations are identified where used. Raw IDs and archive paths stay internal.
+Readable EPUB chapters come from the actual document headings, not guessed
+chapter numbers in filenames. Missing headings fall back to section order;
+printed pagination is never invented. Source metadata is still unverified.
+
+After changing server code, reload the book MCP child process and refresh the
+ChatGPT plugin's discovered metadata. Existing chats may retain earlier explicit
+instructions; start a fresh chat for validating the new default behaviour.
+
 ```powershell
 .\.venv\Scripts\book-research.exe serve --transport stdio
 .\.venv\Scripts\book-research.exe serve --transport streamable-http --port 8765

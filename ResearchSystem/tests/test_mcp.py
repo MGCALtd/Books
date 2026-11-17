@@ -18,17 +18,22 @@ class MCPTests(unittest.TestCase):
                 args=['-m','book_research.cli','--db',str(db),'serve'])
             async with stdio_client(parameters) as (reader, writer):
                 async with ClientSession(reader, writer) as session:
-                    await session.initialize()
+                    initialized = await session.initialize()
+                    self.assertIn('ONE coherent', initialized.instructions)
                     tools = await session.list_tools()
                     self.assertEqual({tool.name for tool in tools.tools}, {'search','fetch','list_books'})
                     self.assertTrue(all(tool.annotations.readOnlyHint for tool in tools.tools))
                     result = await session.call_tool('search', {'query':'catalyst'})
                     self.assertFalse(result.isError)
                     data = json.loads(result.content[0].text)
+                    self.assertEqual(data['research_style'], 'research-synthesis-v1')
+                    self.assertIn('citation', data['results'][0])
                     ident = data['results'][0]['id']
                     fetched = await session.call_tool('fetch', {'id':ident})
                     self.assertFalse(fetched.isError)
                     self.assertIn('catalyst', fetched.content[0].text)
+                    fetched_data = json.loads(fetched.content[0].text)
+                    self.assertIn('reference', fetched_data['citation'])
                     invalid = await session.call_tool('fetch', {'id':'999999'})
                     self.assertTrue(invalid.isError)
         with tempfile.TemporaryDirectory() as temporary:
