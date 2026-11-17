@@ -1,5 +1,6 @@
 mcp==1.30.0
 pypdf==6.21.4
+fonttools==4.68.0
 fastembed==0.9.1
 httpx==0.28.1
 onnxruntime==1.32.0

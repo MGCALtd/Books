@@ -87,12 +87,15 @@ To test up to 12 local books and measure retrieval after import:
 ```powershell
 .\.venv\Scripts\python.exe scripts/import_sample.py --folder books/inbox --limit 12 --cpu-embed
 .\.venv\Scripts\python.exe scripts/benchmark_collection.py
+.\.venv\Scripts\python.exe scripts/verify_real_mcp.py
 ```
 
 Private results are saved in `reports/real-book-sample.json`,
 `reports/real-book-retrieval.json` and `reports/Real_Book_Test_Report.html`.
 The benchmark checks expected subject sources in the top five results. It does
 not certify scientific accuracy or that every equation/page extracted correctly.
+The MCP check runs local protocol calls against the actual imported database;
+it does not connect the service to an external ChatGPT account.
 
 ## Read-only MCP
 

@@ -228,6 +228,8 @@ class Catalogue:
         self._check_embedding_space()
         if not self.embeddings:
             raise ValueError('Embedding client required')
+        processed = 0
+        started = time.perf_counter()
         while True:
             query = 'SELECT id,text FROM passages WHERE vector IS NULL'
             params = []
@@ -242,6 +244,11 @@ class Catalogue:
                 self._check_dimensions(vectors)
                 self.db.executemany('UPDATE passages SET vector=? WHERE id=?',
                                     [(json.dumps(vector), row['id']) for row, vector in zip(rows, vectors)])
+            processed += len(rows)
+            if processed % 512 == 0:
+                import sys
+                print(f'Embedded {processed} passages in {time.perf_counter()-started:.1f}s',
+                      file=sys.stderr, flush=True)
 
     @staticmethod
     def _cosine(a, b):

@@ -16,9 +16,11 @@ assert len(parts) > 1
 assert 'UNIQUE_FINAL_MARKER' in parts[-1]
 lengths = [len(encoder.tokenizer.encode(part).ids) for part in parts]
 assert max(lengths) <= 512
+encoded = encoder.encoder.model.tokenizer.encode_batch(parts)
+assert [sum(item.attention_mask) for item in encoded] == lengths
 vectors = encoder.embed([parts[0], parts[-1]])
 assert len(vectors) == 2 and all(len(vector) == 384 for vector in vectors)
 report = {'status':'passed','chunks':len(parts),'max_chunk_tokens':max(lengths),
-          'last_marker_preserved':True,'dimensions':384}
+          'last_marker_preserved':True,'internal_token_counts_match':True,'dimensions':384}
 (root / 'reports/embedding-chunk-check.json').write_text(json.dumps(report,indent=2),encoding='utf-8')
 print(json.dumps(report))

@@ -21,6 +21,9 @@ class CPUEmbeddings:
         self.tokenizer = Tokenizer.from_str(self.encoder.model.tokenizer.to_str())
         self.tokenizer.no_padding()
         self.tokenizer.no_truncation()
+        # FastEmbed's downloaded tokenizer defaults to 256 tokens. The ONNX
+        # BERT model supports 512; our guard and token-aware splitter bound inputs.
+        self.encoder.model.tokenizer.no_truncation()
         artifacts = sorted(cache_dir.rglob('*.onnx'))
         if not artifacts:
             raise ValueError('No downloaded ONNX model found in cache')
@@ -28,7 +31,7 @@ class CPUEmbeddings:
         for artifact in artifacts:
             with artifact.open('rb') as stream:
                 digest.update(hashlib.file_digest(stream, 'sha256').digest())
-        self._identity = self.model + '@' + digest.hexdigest()
+        self._identity = self.model + '@' + digest.hexdigest() + '/context512-v1'
 
     def identity(self):
         return self._identity
