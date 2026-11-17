@@ -2,6 +2,14 @@
   "version": "2.0.0",
   "tasks": [
     {
+      "label": "Import first 5 inbox books",
+      "type": "process",
+      "command": "${workspaceFolder}/.venv/Scripts/python.exe",
+      "args": ["scripts/import_sample.py", "--folder", "books/inbox", "--limit", "5", "--cpu-embed"],
+      "options": {"cwd": "${workspaceFolder}"},
+      "problemMatcher": []
+    },
+    {
       "label": "Run book research tests",
       "type": "process",
       "command": "${workspaceFolder}/.venv/Scripts/python.exe",

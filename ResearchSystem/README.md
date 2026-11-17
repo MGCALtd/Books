@@ -6,6 +6,12 @@ Open `ResearchSystem/book-research.code-workspace` in VS Code. Local Python
 environment: `ResearchSystem/.venv`. VS Code tasks run tests and import samples;
 the debugger configuration starts the local MCP/search service.
 
+For initial real-book testing, place PDFs/EPUBs/text files in `books/inbox/`
+(create that folder if needed), then run the VS Code task **Import first 5 inbox
+books**. The whole `books/` folder, databases, model caches and reports are
+ignored by Git. Real-book samples use `data/real-books.sqlite3`, separately
+from the synthetic sample database.
+
 Local catalogue and read-only MCP service for an unsorted collection. Source books
 are never moved or edited. No OpenAI/Azure API calls or paid services are made.
 
